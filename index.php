@@ -143,6 +143,7 @@ function footer(){
 				<ul>
 					<li><a href="https://urgero.org/">URGERO.ORG</a></li>
 					<li><a href="http://parsedown.org/">Parsedown</a></li>
+					<li><a href="https://github.com/mitchellurgero/SquWiki">GitHub</a></li>
 				</ul>
 			</section>
 			<section id="popular">
