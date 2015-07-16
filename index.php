@@ -18,7 +18,8 @@ $safe_pages = scandir("./pages");
     readPage("home");
   } else {
   	//Parse 404 error
-	readPage("404");
+	header("Location: $siteURL/404");
+	die();
   }
 	footer();
 
