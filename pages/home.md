@@ -24,7 +24,36 @@ Then you will need the following at the top of the file:
 That will set most of the needed meta data for you so that if a page is shared from the site, places like Google, Facebook, Twitter, etc can grab meta data which makes the search result, or post much better looking.
 Once that is in place, you can start building the page to your liking. [Here is where it all started](http://daringfireball.net/projects/markdown/syntax). This will give you the syntax you need to begin building a good-looking, simple, clean, and fast Wiki Site.
 
-1. one
-2. two
-3. three
-4. four
+If you can understand markdown language then you will be able to use this wiki perfectly fine.
+
+### Understanding the SquWiki File System ###
+The SquWiki file system is very simple to understand, you have to first realise the folders in it:
+- backupPages
+- lock
+- pages
+- css
+- js
+- application
+
+#### backupPages ####
+This folder is where backups of pages are taken when a user presses the "Save" button when editing a wiki page (if public editing is enabled in the config.php file). There is not much to this folder.
+
+#### lock ####
+The lock folder. This folder is where you can "lock" pages from editing if you have public editing enabled. If you want to lock a page from editing, simple put a blank file called **page_name.lock** in this folder. This will keep edits from happening to that page.
+Please note: the file name in the lock folder needs to match the filename in the pages folder (minus the extension).
+
+#### pages ####
+This folder is where you put the wiki pages. The format is simple: **page_name.md**. The file name (without the extension) will be used for the URL, for example: pagename.md will go out to http://domain.com/pagename.
+
+#### css ####
+The CSS folder holds the CSS for the Wiki site, style.css is the default, and cannot be changed without modifing the actual Wiki script. But you can modify the style.css to your liking.
+For simplicity, style.css has been formatted to style **HTML TAGS** so that any edits made are unified.
+
+#### js ####
+This folder is for the javascript you want on the site. **index.js** is automatically put on every page whether it is empty or full of javascript.
+
+#### application ####
+The application folder is where the menu.md and aside.md files are stored.
+- menu.md: The menu top bar that is displayed on every page
+- aside.md: The sidebar displayed on every page
+Both support markdown, HTML, and Javascript.
