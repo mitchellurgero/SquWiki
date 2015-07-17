@@ -145,7 +145,7 @@ This file is not put through a for loop so that everything in the file is put ri
 function aside(){
 	$pd = new ParsedownExtra();
 	$page_id = "./application/aside.md";
-	echo "<aside>";
+	echo "<aside><br />";
 	echo $pd->text(file_get_contents($page_id));
 	echo "</aside>";
 }
@@ -228,7 +228,7 @@ function footer(){
 				<header>
 					<h3>About</h3>
 				</header>
-				<p>Copyright &copy; 2016 URGERO.ORG & SquWiki<br>This Wiki script is completely open source, and is available to download through github. Links are to the right.</p>
+				<p>Powered by <a href="https://urgero.org/squwiki" target="_blank">SquWiki</a><br />Copyright &copy; 2016 URGERO.ORG & SquWiki<br />The open source, flat-file Wiki.</p>
 			</section>
 			<section id="blogroll">
 				<header>
