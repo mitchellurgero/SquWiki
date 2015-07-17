@@ -20,9 +20,14 @@ function readPage($page){
 	echo "\n";
 	echo'<header>'."\n";
 	//Get variables from config.php to determin Site name, Description, and if admin is allowing public edit access.
-	global $SiteName, $Description, $AllowPublicEdit;
-	echo "<h3>".$SiteName."</h3>"."\n";
-	echo $Description."<br />"."\n";
+	global $SiteName, $Description, $AllowPublicEdit, $logo;
+	if($logo != ""){
+		echo '<img src="'.$logo.'"></img><br />'."\n";
+	} else {
+		echo "<h3>".$SiteName."</h3>"."\n";
+	}
+	
+	echo "<i>".$Description."</i><br />"."\n";
 	echo'</header>'."\n";
 	menu();
 	echo '<div id="content">';

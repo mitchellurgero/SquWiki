@@ -8,7 +8,7 @@ require_once('parsedown.php');
 require_once('parsedownextra.php');
 require_once('functions.php');
 //Begin Parsing request URI to get what file the user needs
-$request  = str_replace($pageFolder, "", $_SERVER['REQUEST_URI']);
+$request  = str_replace($rootFolder, "", $_SERVER['REQUEST_URI']);
 // $params = end(explode("/"), $request);
 $params = split("/", $request);
 //List any safe pages the user is allow to view (Any file in pages folder)
