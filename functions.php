@@ -159,6 +159,8 @@ function read404($page){
 	$error404 = "# 404 Page Not Found\n## Uh-oh, Looks like this page was not found!";
 	echo $pd->text($error404);
 	$filename = $page_id;
+	$filename = str_replace("./pages/", "", $filename);
+	$filename = str_replace(".md", "", $filename);
     		//If page is not the 404 page, then detect if Public edits is on.
     if($AllowPublicEdit === true){
     	echo '<p id="pageValue" hidden>'.$filename.'</p>';
