@@ -24,8 +24,7 @@ $safe_pages = scandir("./pages");
     readPage("home");
   } else {
   	//Parse 404 error
-	header("Location: $siteURL/404");
-	die();
+	read404($params[1]);
   }
 	footer();
 

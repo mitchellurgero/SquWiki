@@ -120,6 +120,62 @@ function readPageEdit($page){
 	}
 	echo "</article>";
 }
+function read404($page){
+	$pd = new ParsedownExtra();
+	$page_id = "./pages/".$page.".md";
+	//Begin output of header
+	echo "<head>";
+	echo "\n";
+	echo'<header>'."\n";
+	//Get variables from config.php to determin Site name, Description, and if admin is allowing public edit access.
+	global $SiteName, $Description, $AllowPublicEdit, $logo;
+	if($logo != ""){
+		echo '<img src="'.$logo.'"></img><br />'."\n";
+	} else {
+		echo "<h3>".$SiteName."</h3>"."\n";
+	}
+	
+	echo "<i>".$Description."</i><br />"."\n";
+	echo'</header>'."\n";
+	menu();
+	echo '<div id="content">';
+    echo '<div id="mainContent">';
+	echo '<section id="intro">';
+	echo "<title>404 Page Not Found | ".$SiteName."</title>";
+	echo "\n";
+	echo '<meta name="description" content="404 Page Not Found">';
+	echo "\n";
+	echo '<meta name="keywords" content="404,page,not,found">';
+	echo "</section>";
+	css();
+	echo "\n";
+	//Output any javascript that may or may not be needed. (IF the file is blank, then nothing will be there.) **Jquery is already added from a CDN for ease of use as well.
+    javascript();
+	echo "</head>";
+	echo "\n";
+	echo '<body>';
+	echo '<section id="bodyContents">';
+	echo "<article>";
+	$error404 = "# 404 Page Not Found\n## Uh-oh, Looks like this page was not found!";
+	echo $pd->text($error404);
+	$filename = $page_id;
+    		//If page is not the 404 page, then detect if Public edits is on.
+    if($AllowPublicEdit === true){
+    	echo '<p id="pageValue" hidden>'.$filename.'</p>';
+    	echo "<p><a href=\"#\" id=\"editButton\" onClick=\"getPage()\">Add this page to the Wiki instead.</a></p>";
+    }
+	echo "</article>";
+	echo "</section>";
+	
+	echo "</div>"."\n";
+	editJavaScript($filename);
+	aside();
+	echo "</div>";
+	
+	echo "</body>";
+	echo "\n";
+	
+}
 /*
 Simple Menu function to get a basic menu, file is in: ./application/menu.md 
 Use this file to build the top menu.
@@ -208,8 +264,8 @@ function editJavaScript($file){
   						//alert(msg + "success");
         				document.getElementById('bodyContents').innerHTML = msg;
   				},
-  				error: function(XMLHttpRequest, textStatus, errorThrown) {
-     					alert(XMLHttpRequest.responseText);
+  				error: function(XMLHttpRequest, textStatus, errorThrown, msg) {
+     					//alert(msg);
   				}
 				});
     		

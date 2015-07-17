@@ -37,7 +37,7 @@ if(isset($_POST['filename']) && isset($_POST['op']) && isset($_POST['content']))
 
 //getFile will get the contents of a file and return it to the user.
 function getFile($filename){
-	$file = file_get_contents("./pages/$filename".".md") or die("Unable to open file!");
+	$file = file_get_contents("./pages/$filename".".md") or die("title:\ndescription:\nkeywords:\n<!--Skip this line -->\n");
 	echo $file;
 	die();
 	
@@ -46,8 +46,12 @@ function getFile($filename){
 function saveFile($filename, $content){
 	if(!file_exists("./lock/".$filename.".lock")){
 		$now = date("m-d-Y-H-i-s", time());
-		copy("./pages/".$filename.".md", "./backupPages/".$filename."_".$now.".md");
-		$myfile = fopen("./pages/".$filename.".md", "w") or die("Unable to open file!");
+		if(file_exists("./pages/".$filename.".md")){
+			copy("./pages/".$filename.".md", "./backupPages/".$filename."_".$now.".md");
+		} else {
+			touch("./pages/".$filename.".md") or die("Unable to create file!");
+		}
+		$myfile = fopen("./pages/".$filename.".md", "w") or die("Unable to save file!");
 		fwrite($myfile, $content);
 		fclose($myfile);
 		$pd = new ParsedownExtra();
