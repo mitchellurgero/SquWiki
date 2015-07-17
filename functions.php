@@ -1,6 +1,10 @@
 <?php
+/*
+functions.php
+Function file where all functions are stored
+This makes functions easy to access across other PHP files.
 
-//functions
+*/
 
 /*
 The readPage function does exactly as it says on the tin: Read the <page>.md file and output the result to the page
@@ -226,9 +230,9 @@ function footer(){
 					<h3>Links to resources used</h3>
 				</header>
 				<ul>
-					<li><a href="https://urgero.org/">URGERO.ORG</a></li>
-					<li><a href="http://parsedown.org/">Parsedown</a></li>
-					<li><a href="https://github.com/mitchellurgero/SquWiki">GitHub</a></li>
+					<li><a href="https://urgero.org/" target="_blank">URGERO.ORG</a></li>
+					<li><a href="http://parsedown.org/" target="_blank">Parsedown</a></li>
+					<li><a href="https://github.com/mitchellurgero/SquWiki" target="_blank">GitHub</a></li>
 				</ul>
 			</section>
 			<section id="popular">

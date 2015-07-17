@@ -1,4 +1,8 @@
 <?php
+/*
+index.php
+Framework file: used to parse incoming requests and push those parameters to the functions.php file.
+*/
 require_once('config.php');
 require_once('parsedown.php');
 require_once('parsedownextra.php');
