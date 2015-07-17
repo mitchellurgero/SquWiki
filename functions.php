@@ -243,7 +243,7 @@ function editJavaScript($file){
   				data: "filename=<?php echo $file; ?>&op=edit",
   				success: function(msg){
   						//alert(msg + "success");
-        				document.getElementById('bodyContents').innerHTML = '<textarea id="newContent" style="height:400px; width:900px;">' + msg + '</textarea><br /><input type="button" id="save" name="save" value="Save Page" onClick="savePage()" />';
+        				document.getElementById('bodyContents').innerHTML = 'Use the Text Area below to edit this page:<br /><textarea id="newContent" style="height:400px; width:900px;">' + msg + '</textarea><br /><input type="button" id="save" name="save" value="Save Page" onClick="savePage()" />';
   				},
   				error: function(XMLHttpRequest, textStatus, errorThrown) {
      					alert(XMLHttpRequest.responseText);
