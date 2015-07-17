@@ -44,20 +44,25 @@ function getFile($filename){
 }
 //saveFile will get content from the user and save it to the file.
 function saveFile($filename, $content){
-	$now = date("m-d-Y-H-i-s", time());
-	copy("./pages/".$filename.".md", "./backupPages/".$filename."_".$now.".md");
-	$myfile = fopen("./pages/".$filename.".md", "w") or die("Unable to open file!");
-	fwrite($myfile, $content);
-	fclose($myfile);
-	$pd = new ParsedownExtra();
-	readPageEdit($filename);
+	if(!file_exists("./lock/".$filename.".lock")){
+		$now = date("m-d-Y-H-i-s", time());
+		copy("./pages/".$filename.".md", "./backupPages/".$filename."_".$now.".md");
+		$myfile = fopen("./pages/".$filename.".md", "w") or die("Unable to open file!");
+		fwrite($myfile, $content);
+		fclose($myfile);
+		$pd = new ParsedownExtra();
+		readPageEdit($filename);
+	} else {
+		$pd = new ParsedownExtra();
+		readPageEdit($filename);
+	}
 	
 }
 //canEdit will verify the file can be edited (Useful for static pages like a home page, about us, or contact page.)
 function canEdit($filename){
 	global $AllowPublicEdit;
 	if($AllowPublicEdit === true){
-		if (!file_exists("./lock/".$filename."lock")){
+		if (!file_exists("./lock/".$filename.".lock")){
 			return true;
 		} else {
 			return false;
