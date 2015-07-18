@@ -11,8 +11,8 @@ An Example of the site is [here.](https://urgero.org)
 ### 7/18/2015 ###
 - Fixed some more bugs
 - finally think this script is stable.
-### 7/17/2015 ###
 
+### 7/17/2015 ###
 - Added public editing config in config.php
 - Fixed some layout issues
 - fixed security bugs in public editor
