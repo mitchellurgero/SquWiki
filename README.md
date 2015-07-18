@@ -3,12 +3,14 @@ The SquWiki clean and modern Wiki!
 
 The purpose of this wiki script is to allow someone to host their own private wiki for school, projects, or anything else really.
 
-Right now it is in its early stages so I would not recommend downloading this just yet.
+Download the master zip by clicking the "Download Zip" Button to the right. ->
 
 An Example of the site is [here.](https://urgero.org)
 
 ## Change Log ##
-
+### 7/18/2015 ###
+- Fixed some more bugs
+- finally think this script is stable.
 ### 7/17/2015 ###
 
 - Added public editing config in config.php
