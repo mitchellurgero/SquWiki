@@ -231,6 +231,24 @@ function javascript(){
 	
 	
 }
+function detectHTTP(){
+    if(is_ssl() === true){
+    	echo "https://";
+    } else {
+    	echo "http://";
+    }
+}
+function is_ssl() {
+    if ( isset($_SERVER['HTTPS']) ) {
+        if ( 'on' == strtolower($_SERVER['HTTPS']) )
+            return true;
+        if ( '1' == $_SERVER['HTTPS'] )
+            return true;
+    } elseif ( isset($_SERVER['SERVER_PORT']) && ( '443' == $_SERVER['SERVER_PORT'] ) ) {
+        return true;
+    }
+    return false;
+}
 function editJavaScript($file){
 	//$file = "./pages/".$file.".md";
 	global $siteURL, $AllowPublicEdit;
@@ -241,14 +259,14 @@ function editJavaScript($file){
 		function getPage(){
     		 $.ajax({
   				type: "GET",
-  				url: "<?php echo $siteURL; ?>/files.php",
+  				url: "<?php echo detectHTTP().$siteURL; ?>/files.php",
   				data: "filename=<?php echo $file; ?>&op=edit",
   				success: function(msg){
   						//alert(msg + "success");
         				document.getElementById('bodyContents').innerHTML = 'Use the Text Area below to edit this page:<br /><textarea id="newContent" style="height:400px; width:900px;">' + msg + '</textarea><br /><input type="button" id="save" name="save" value="Save Page" onClick="savePage()" />';
   				},
   				error: function(XMLHttpRequest, textStatus, errorThrown) {
-     					alert(XMLHttpRequest.responseText);
+     					alert("There was an error opening the page.");
   				}
 				});
     		
@@ -256,7 +274,7 @@ function editJavaScript($file){
 		function savePage(){
     		 $.ajax({
   				type: "POST",
-  				url: "<?php echo $siteURL; ?>/files.php",
+  				url: "<?php echo detectHTTP().$siteURL; ?>/files.php",
   				data: {
   					filename: "<?php echo $file; ?>",
   					op: "save",
@@ -264,10 +282,10 @@ function editJavaScript($file){
   				},
   				success: function(msg){
   						//alert(msg + "success");
-        				document.getElementById('bodyContents').innerHTML = msg;
+        				document.getElementById('bodyContents').innerHTML = msg + "<p><a href=\"#\" id=\"editButton\" onClick=\"getPage()\">edit this page</a></p>";
   				},
   				error: function(XMLHttpRequest, textStatus, errorThrown, msg) {
-     					//alert(msg);
+     					alert("There was an error saving the page.");
   				}
 				});
     		

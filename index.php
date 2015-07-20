@@ -7,8 +7,15 @@ require_once('config.php');
 require_once('parsedown.php');
 require_once('parsedownextra.php');
 require_once('functions.php');
+
 //Begin Parsing request URI to get what file the user needs
 $request  = str_replace($rootFolder, "", $_SERVER['REQUEST_URI']);
+//Detect Force SSL
+if($forceSSL === true){
+	if(is_ssl() === false){
+		header("Location: https://".$siteURL.$request);
+	}
+}
 // $params = end(explode("/"), $request);
 $params = split("/", $request);
 //List any safe pages the user is allow to view (Any file in pages folder)
