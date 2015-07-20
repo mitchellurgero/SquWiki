@@ -29,6 +29,10 @@ Once that is in place, you can start building the page to your liking. [Here is 
 
 If you can understand markdown language then you will be able to use this wiki perfectly fine.
 
+### Security & Page Locking ###
+SquWiki supports disabling page edits if public edditing is enabled, and it is really easy to do. 
+To lock a page from editing all you have to do is make a file under the lock folder called **page_name.lock**.
+
 ### Understanding the SquWiki File System ###
 The SquWiki file system is very simple to understand, you have to first realise the folders in it:
 - backupPages
