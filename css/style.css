@@ -12,7 +12,8 @@ header, footer, aside, nav, article {
 body {
     margin: 0 auto;
     width: 80%;
-    font: 13px/22px Helvetica, Arial, sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
+    /*font: 13px/22px Helvetica, Arial, sans-serif;*/
     background: #f0f0f0;
     padding-left: 22px;
 }
@@ -127,12 +128,14 @@ nav ul li {
 #content {
     display: table;
     width: 100%;
+    font-family: 'Source Sans Pro', sans-serif;
 }
  
     #mainContent {
         display: table-cell;
         width: 70%;
         padding-right: 22px;
+        font-family: 'Source Sans Pro', sans-serif;
     }
     aside {
         display: table-cell;
@@ -143,6 +146,7 @@ footer {
 	left: 0;
 	width: 100%;
 	background: #222;
+	font-family: 'Source Sans Pro', sans-serif;
 }
 
 	footer div {
