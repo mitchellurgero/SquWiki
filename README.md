@@ -8,6 +8,11 @@ Download the master zip by clicking the "Download Zip" Button to the right. ->
 An Example of the site is [here.](https://urgero.org)
 
 ## Change Log ##
+### 7/21/2015 ###
+- 404 Pages now give the option to create new page. (If public editing is enabled)
+- Added some more CSS elements to make the wiki look better
+- Attempted to fix XHTML standard output of the wiki
+
 ### 7/18/2015 ###
 - Fixed some more bugs
 - finally think this script is stable.
