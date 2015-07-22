@@ -209,7 +209,7 @@ function aside(){
 }
 //CSS - Self-explanitory, Parses the ./css/style.css into the html (As opposeed to a seprate file) This function is only temporary because of an htacceess bug I am working on.
 function css(){
-	echo "<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css'>\n";
+//	echo "<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css'>\n";
 	echo "<style>";
 	echo "\n";
 	echo file_get_contents('./css/style.css');
