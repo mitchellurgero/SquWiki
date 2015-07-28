@@ -317,6 +317,7 @@ function footer(){
 				<ul>
 					<li><a href="https://urgero.org/" target="_blank">URGERO.ORG</a></li>
 					<li><a href="http://parsedown.org/" target="_blank">Parsedown</a></li>
+					<li><a href="https://github.com/ajay-gandhi/simphp" target="_blank">simphp</a></li>
 					<li><a href="https://github.com/mitchellurgero/SquWiki" target="_blank">GitHub</a></li>
 				</ul>
 			</section>
