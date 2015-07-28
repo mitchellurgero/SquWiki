@@ -10,6 +10,7 @@ This makes functions easy to access across other PHP files.
 The readPage function does exactly as it says on the tin: Read the <page>.md file and output the result to the page
 This uses Parsedown & ParsedownExtra to read markdown quickly, then output.
 */
+require_once("counter.php");
 function readPage($page){
 	$pd = new ParsedownExtra();
 	$page_id = "./pages/".$page.".md";
@@ -20,7 +21,7 @@ function readPage($page){
 	echo "\n";
 	echo'<header>'."\n";
 	//Get variables from config.php to determin Site name, Description, and if admin is allowing public edit access.
-	global $SiteName, $Description, $AllowPublicEdit, $logo;
+	global $SiteName, $Description, $AllowPublicEdit, $logo, $info;
 	if($logo != ""){
 		echo '<img src="'.$logo.'"></img><br />'."\n";
 	} else {
@@ -72,6 +73,7 @@ function readPage($page){
 	$filename = $page_id;
 	if (file_exists($filename)) {
     	echo '<p style="font-size: 12px;"><i>This page was last modified: '.date ("F d Y H:i:s.", filemtime($filename)).'</i></p>';
+    	echo "<p style=\"font-size: 12px;\">".$info."</p>\n";
     	$filename = str_replace("./pages/","",$filename);
     	$filename = str_replace(".md","",$filename);
     	if($filename != "404"){
@@ -80,6 +82,7 @@ function readPage($page){
     			if($AllowPublicEdit === true){
     				echo '<p id="pageValue" hidden>'.$filename.'</p>';
     				echo "<p><a href=\"#\" id=\"editButton\" onClick=\"getPage()\">edit this page</a></p>";
+    				
     			}
     		}
     	}
