@@ -73,7 +73,7 @@ function readPage($page){
 	$filename = $page_id;
 	if (file_exists($filename)) {
     	echo '<p style="font-size: 12px;"><i>This page was last modified: '.date ("F d Y H:i:s.", filemtime($filename)).'</i></p>';
-    	echo "<p style=\"font-size: 12px;\">".$info."</p>\n";
+    	
     	$filename = str_replace("./pages/","",$filename);
     	$filename = str_replace(".md","",$filename);
     	if($filename != "404"){
@@ -204,10 +204,12 @@ The aside function is used to build a sidebar of sorts, very basic, but supports
 This file is not put through a for loop so that everything in the file is put right next to each other (Not in looks, but in code.)
 */
 function aside(){
+	global $info;
 	$pd = new ParsedownExtra();
 	$page_id = "./application/aside.md";
 	echo "<aside><br />";
 	echo $pd->text(file_get_contents($page_id));
+	echo "<p style=\"font-size: 12px;\"><h3>Global Site Stats:</h3>".$info."</p>\n";
 	echo "</aside>";
 }
 //CSS - Self-explanitory, Parses the ./css/style.css into the html (As opposeed to a seprate file) This function is only temporary because of an htacceess bug I am working on.
