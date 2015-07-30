@@ -5,7 +5,7 @@ The purpose of this wiki script is to allow someone to host their own private wi
 
 Download the master zip by clicking the "Download Zip" Button to the right. ->
 
-An Example of the site is [here.](https://urgero.org)
+
 
 ## Change Log ##
 ### 7/21/2015 ###
