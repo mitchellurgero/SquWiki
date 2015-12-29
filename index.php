@@ -13,7 +13,13 @@ $request  = str_replace($rootFolder, "", $_SERVER['REQUEST_URI']);
 //Detect Force SSL
 if($forceSSL === true){
 	if(is_ssl() === false){
-		header("Location: https://".$siteURL.$request);
+		if($request == "/"){
+			header("Location: https://".$siteURL);
+			die();
+		} else {
+			header("Location: https://".$siteURL.$request);
+			die();
+		}
 	}
 }
 // $params = end(explode("/"), $request);
