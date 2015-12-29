@@ -10,7 +10,7 @@ Download the master zip by clicking the "Download Zip" Button to the right. ->
 ## Change Log ##
 ### 12/29/2015 ###
 - ForceSSL bug fixed. example.com/ requests should no longer redirect to example.com//
-- 
+
 ### 7/21/2015 ###
 - 404 Pages now give the option to create new page. (If public editing is enabled)
 - Added some more CSS elements to make the wiki look better
