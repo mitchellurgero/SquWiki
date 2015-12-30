@@ -12,6 +12,8 @@ require_once('functions.php');
 $request  = str_replace($rootFolder, "", $_SERVER['REQUEST_URI']);
 //Detect Force SSL
 if($forceSSL === true){
+	//Remove the trailing slash when there is a request to the server. (ForceSSL Only)
+	$siteURL = rtrim($siteURL , "/");
 	if(is_ssl() === false){
 		if($request == "/"){
 			header("Location: https://".$siteURL);
