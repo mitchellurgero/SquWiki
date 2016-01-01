@@ -41,8 +41,6 @@ function readPage($page){
 		if(substr($line, 0, strlen("title:")) === "title:"){
 			echo "<title>".str_replace("title: ","", $line)." | ".$SiteName."</title>";
 			echo "\n";
-		} else {
-
 		}
 		if(substr($line, 0, strlen("description:")) === "description:"){
 			echo '<meta name="description" content="'.str_replace("description: ","", $line).'">';
