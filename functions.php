@@ -207,7 +207,6 @@ function aside(){
 	$page_id = "./application/aside.md";
 	echo "<aside><br />";
 	echo $pd->text(file_get_contents($page_id));
-	echo "<p style=\"font-size: 12px;\"><h3>Global Site Stats:</h3>".$info."</p>\n";
 	echo "</aside>";
 }
 //CSS - Self-explanitory, Parses the ./css/style.css into the html (As opposeed to a seprate file) This function is only temporary because of an htacceess bug I am working on.
